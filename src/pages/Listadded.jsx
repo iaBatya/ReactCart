@@ -1,9 +1,11 @@
 import React from 'react';
+import Navigationbar from '../components/Navigationbar';
+
 
 const listadded = () => {
     return (
         <div>
-            <h2>aboba</h2>
+            <Navigationbar navbarItem={'List of all products'} link={"/list"}/>
         </div>
     );
 };

@@ -11,7 +11,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/list" element={<List  />} />
         <Route path="/listadded" element={<Listadded />} />
         <Route path="*" element={<App/>} />
       </Routes>

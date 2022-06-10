@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import Navigationbar from '../components/Navigationbar'
 import Tableheader from '../components/Tableheader';
 import Posts from '../components/Posts';
 import CartItems from '../components/CartItems';
+import CartContext from '../context';
 
 const List = () => {
   const [show, setShow] = useState(true);
-  const [cart, setCart] = useState([]);
-
+  const {cart, setCart} = useContext(CartContext)
   
   const handleClick = (item) => {
         if (cart.indexOf(item) !== -1) return;

@@ -1,15 +1,16 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import {Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink } from 'reactstrap'; 
+import {Navbar, NavbarBrand, Collapse, Nav, NavItem, NavLink } from 'reactstrap'; 
 
 function App() {
+
+  
   return (
     <div>
       <Navbar color="light" expand="md" light>
         <NavbarBrand href="/">
           React App
         </NavbarBrand>
-        <NavbarToggler onClick={function noRefCheck(){}} />
         <Collapse navbar>
           <Nav  className="me-auto" navbar>
             <NavItem>

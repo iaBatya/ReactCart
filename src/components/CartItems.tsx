@@ -1,37 +1,27 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useContext} from 'react';
 import { Table } from 'reactstrap';
-import CartContext from '../context';
+import CartContext, { ContextProps } from '../context';
+import { CartObject } from '../context';
+
 
 const CartItems = () => {
-    const [price, setPrice] = useState(0);
-    const {cart, setCart} = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext) as ContextProps
 
-    const handleRemove = (id) => {
+    const handleRemove = (id: string) => {
         const arr = cart.filter((item) => item.id !== id);
         setCart(arr);
-        handlePrice();
     };
 
-    const handlePrice = () => {
-        let ans = 0;
-        cart.map((item) => (ans += item.amount * item.price))
-        setPrice(ans);
-    };
 
-    const handleChange = (item, d) => {
+    const handleChange = (item: CartObject, d: -1 | 1) => {
         let obj = cart.find((cartitem) => cartitem.id === item.id);
-        obj.amount += d;
-    
-        if (obj.amount === 0) obj.amount = 1;
-        setCart([...cart]);
+        if (obj) {
+          obj.amount += d;
+          if (obj.amount === 0) obj.amount = 1;
+          setCart([...cart]);
+        }
       }
-
-    useEffect(() => {
-        handlePrice();
-    });
     
-    console.log(cart)
-
     return (
         <article>
             {cart.map((item) => (

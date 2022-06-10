@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Table } from 'reactstrap';
 
-const Tableheader = ({setShow}) => {
+interface ITableheaderProps {
+    sortCategory: () => void
+    sortPrice: () => void
+}
+
+const Tableheader: FC<ITableheaderProps> = ({sortCategory, sortPrice}) => {
     return (
         <>
             <Table  bordered    hover>
                 <thead>
                     <tr>
-                        <th>
+                        <th onClick={sortCategory}>
                             Category
                         </th>
                         <th>
                             Name
                         </th>
-                        <th>
+                        <th onClick={sortPrice}>
                             Price
-                        </th>
-                        <th>
-                            <button onClick={()=> setShow(true)}>List</button>
-                            <button onClick={()=> setShow(false)}>Added</button>
                         </th>
                     </tr>
                 </thead>

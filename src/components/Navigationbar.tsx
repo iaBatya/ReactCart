@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import {Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink } from 'reactstrap'; 
 
+interface INavigationbarProps {
+    navbarItem: string
+    link: string
+}
 
-const Navigationbar = ({navbarItem, link}) => {
+const Navigationbar: FC<INavigationbarProps> = ({navbarItem, link}) => {
     return (
         <div>
             <Link to={link}>

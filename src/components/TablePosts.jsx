@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button } from 'reactstrap';
 
 
-const TablePosts = ({item}) => {
+const TablePosts = ({item, handleClick, handleRemove}) => {
     const {category, itemName, price, id } = item;
+
     return (
         <div className='postscomp'>
             <Table bordered hover>
@@ -20,10 +21,8 @@ const TablePosts = ({item}) => {
                                 {price}$
                             </td>
                             <td>
-                                <span>Select: </span>
-                                <Button color="primary">+</Button>
-                                <span>0</span>
-                                <Button color="primary">-</Button>
+                                <Button color='primary' onClick={()=>handleClick(item)}>Add to cart</Button>
+                                <Button onClick={()=>handleRemove(item.id)}>Remove from cart</Button>
                             </td>
                         </tr>
                 </tbody>

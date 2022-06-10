@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Table } from 'reactstrap';
 
-const Tableheader = () => {
+const Tableheader = ({setShow}) => {
     return (
         <>
             <Table  bordered    hover>
@@ -18,7 +18,8 @@ const Tableheader = () => {
                             Price
                         </th>
                         <th>
-                            Actions
+                            <button onClick={()=> setShow(true)}>List</button>
+                            <button onClick={()=> setShow(false)}>Added</button>
                         </th>
                     </tr>
                 </thead>

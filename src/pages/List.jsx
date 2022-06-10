@@ -13,6 +13,7 @@ const List = () => {
   const handleClick = (item) => {
         if (cart.indexOf(item) !== -1) return;
         setCart([...cart, item]);
+        console.log(item);
     };
 
   const handleChange = (item, d) => {
@@ -23,6 +24,7 @@ const List = () => {
     if (arr[ind].amount === 0) arr[ind].amount = 1;
     setCart([...arr]);
   }
+
 
 
   // useEffect(()=>{

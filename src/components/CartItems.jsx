@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Table } from 'reactstrap';
+import CartContext from '../context';
 
-const CartItems = ({ cart, setCart, handleChange }) => {
+const CartItems = ({handleChange }) => {
     const [price, setPrice] = useState(0);
+    const {cart, setCart} = useContext(CartContext)
 
     const handleRemove = (id) => {
         const arr = cart.filter((item) => item.id !== id);
@@ -20,6 +22,8 @@ const CartItems = ({ cart, setCart, handleChange }) => {
         handlePrice();
     });
     
+    console.log(cart)
+
     return (
         <article>
             {cart.map((item) => (

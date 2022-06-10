@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import List from './pages/List';
 import Listadded from './pages/Listadded';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CartContext from './context';
+import list from './data'
 
 function Main() {
   const [cart, setCart] = useState([])
+
+  useEffect(() => {
+    console.log('123')
+  })
 
   return (
     <React.StrictMode>

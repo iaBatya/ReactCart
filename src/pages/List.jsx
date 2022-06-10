@@ -11,18 +11,17 @@ const List = () => {
   const {cart, setCart} = useContext(CartContext)
   
   const handleClick = (item) => {
-        if (cart.indexOf(item) !== -1) return;
-        setCart([...cart, item]);
+        if (cart.find((cartitem) => cartitem.id === item.id)) return;
+        setCart([...cart, {...item, amount:1}]);
         console.log(item);
     };
 
   const handleChange = (item, d) => {
-    const ind = cart.indexOf(item);
-    const arr = cart;
-    arr[ind].amount += d;
+    let obj = cart.find((cartitem) => cartitem.id === item.id);
+    obj.amount += d;
 
-    if (arr[ind].amount === 0) arr[ind].amount = 1;
-    setCart([...arr]);
+    if (obj.amount === 0) obj.amount = 1;
+    setCart([...cart]);
   }
 
 

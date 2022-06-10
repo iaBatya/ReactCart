@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import { Table } from 'reactstrap';
 import CartContext from '../context';
 
-const CartItems = ({handleChange }) => {
+const CartItems = () => {
     const [price, setPrice] = useState(0);
     const {cart, setCart} = useContext(CartContext)
 
@@ -18,6 +18,14 @@ const CartItems = ({handleChange }) => {
         setPrice(ans);
     };
 
+    const handleChange = (item, d) => {
+        let obj = cart.find((cartitem) => cartitem.id === item.id);
+        obj.amount += d;
+    
+        if (obj.amount === 0) obj.amount = 1;
+        setCart([...cart]);
+      }
+
     useEffect(() => {
         handlePrice();
     });
@@ -32,13 +40,13 @@ const CartItems = ({handleChange }) => {
                 <tbody>
                         <tr>
                             <th scope="row">
-                                {item.category}
+                                {item.category.name}
                             </th>
                             <td>
-                                {item.itemName}
+                                {item.name}
                             </td>
                             <td>
-                                {price}$
+                                {item.price * item.amount}$
                             </td>
                             <td>
                                 <button onClick={() => handleChange(item, 1)}>+</button>

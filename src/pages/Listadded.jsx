@@ -6,13 +6,13 @@ import Posts from '../components/Posts';
 import CartContext from '../context';
 import List from './List';
 
-const Listadded = () => {
+const Listadded = ({handleChange, setCart, cart}) => {
 
     return (
         <div>
             <Navigationbar navbarItem={'List of all products'} link={"/list"}/>
             <Tableheader  />
-            <CartItems/>
+            <CartItems cart={cart} setCart={setCart} handleChange={handleChange}/>
         </div>
     );
 };
